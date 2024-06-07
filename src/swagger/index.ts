@@ -1,0 +1,23 @@
+import swaggerJSDoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express';
+import { Express } from 'express';
+import { version } from '../../package.json'
+
+const options: swaggerJSDoc.Options = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Task Manager API',
+      version,
+      description: 'Just a simple Task Manager API'
+    }
+  },
+  apis: ['./src/routes/*.ts', './src/db/models/*.ts']
+};
+
+const swaggerSpec = swaggerJSDoc(options);
+
+export const setupSwagger = (app: Express, port: number) => {
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  console.log(`Docs available at http://localhost:${port}/api-docs`);
+};

@@ -19,8 +19,10 @@
 
 `npm run seed`
 
-`npm start`
+`npm start` или `npm run dev`
 
 После чего приложение будет доступно на: http://localhost:3001
+
+Документация Swagger: http://localhost:3001/api-docs
 
 endpoint-ы в файле **api.http**

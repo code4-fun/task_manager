@@ -15,6 +15,37 @@ enum TaskStatus {
   COMPLETED = 'выполнено'
 }
 
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     Task:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: string
+ *           format: uuid
+ *           description: Task unique identifier
+ *         title:
+ *           type: string
+ *           minLength: 3
+ *           description: Task title
+ *         description:
+ *           type: string
+ *           description: Task description
+ *         status:
+ *           type: string
+ *           enum: [выполняется, выполнено]
+ *           description: Task status
+ *         createdAt:
+ *           type: string
+ *           format: date-time
+ *           description: Date and time of task creation
+ *         updatedAt:
+ *           type: string
+ *           format: date-time
+ *           description: Date and time of task last update
+ */
 @Table
 export class Task extends Model<Task> {
   @Column({
