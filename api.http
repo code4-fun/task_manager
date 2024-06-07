@@ -1,0 +1,33 @@
+### get all tasks
+
+GET http://localhost:3001/tasks
+
+### get task by id
+
+GET http://localhost:3001/tasks/09805e11-c103-49d3-b712-2dff13b87767
+
+### create task
+
+POST http://localhost:3001/tasks
+Content-Type: application/json
+
+{
+  "title": "New task",
+  "description": "New task description",
+  "status": "выполняется"
+}
+
+### update task
+
+PUT http://localhost:3001/tasks/83ec57d1-1bc9-412e-a54a-daed37a48850
+Content-Type: application/json
+
+{
+  "title": "Updated task",
+  "description": "Updated task description",
+  "status": "выполнено"
+}
+
+### delete task
+
+DELETE http://localhost:3001/tasks/83ec57d1-1bc9-412e-a54a-daed37a48850
