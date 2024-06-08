@@ -2,6 +2,7 @@ import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import { Express } from 'express';
 import { version } from '../../package.json'
+import log from '../logger'
 
 const options: swaggerJSDoc.Options = {
   definition: {
@@ -19,5 +20,5 @@ const swaggerSpec = swaggerJSDoc(options);
 
 export const setupSwagger = (app: Express, port: number) => {
   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-  console.log(`Docs available at http://localhost:${port}/api-docs`);
+  log.info(`Docs available at http://localhost:${port}/api-docs`);
 };
